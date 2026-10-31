@@ -1,0 +1,121 @@
+{
+ "variants": {
+  "все баги исправлены": {
+   "failed_checks": [],
+   "train_loss_first": 3.184384822845459,
+   "train_loss_last50": 0.03421982351690531,
+   "generation_loss": 0.02368015795975225,
+   "generation_accuracy": 0.9925,
+   "valid_bigrams": 1.0,
+   "vocab_size": 19,
+   "marginal_entropy": 2.7183778285980225,
+   "sample": "ания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смот",
+   "row_sum_min": 0.9999998211860657,
+   "row_sum_max": 1.0000001192092896,
+   "future_leak": 0.0,
+   "input_sensitivity": 13.043198585510254,
+   "swapped_pe_generation_loss": 0.024954959281894843
+  },
+  "только баг PE": {
+   "failed_checks": [
+    "positional_encoding_matches_formula",
+    "positional_encoding_starts_at_zero_position"
+   ],
+   "train_loss_first": 3.1843161582946777,
+   "train_loss_last50": 0.03396513748914003,
+   "generation_loss": 0.023575549579109064,
+   "generation_accuracy": 0.99,
+   "valid_bigrams": 1.0,
+   "vocab_size": 19,
+   "marginal_entropy": 2.7183778285980225,
+   "sample": "ания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смот",
+   "row_sum_min": 0.9999998211860657,
+   "row_sum_max": 1.0000001192092896,
+   "future_leak": 0.0,
+   "input_sensitivity": 13.056989669799805
+  },
+  "только баг LayerNorm": {
+   "failed_checks": [
+    "layernorm_normalizes_each_token_separately",
+    "layernorm_is_independent_of_other_batch_elements",
+    "generate_respects_top_k_one",
+    "generate_switches_model_to_eval"
+   ],
+   "train_loss_first": 3.1123924255371094,
+   "train_loss_last50": 0.07655900739133358,
+   "generation_loss": 2.886391697525978,
+   "generation_accuracy": 0.145,
+   "valid_bigrams": 0.21,
+   "vocab_size": 19,
+   "marginal_entropy": 2.7183778285980225,
+   "sample": "аовмцц нцоовоанцм змнввнмниноз и в инвиз рвцар зр взиинзоомрцазамо ацо арцаицимн рмнз иноо ммм оарраацомррззцоовиирз нцммоананим ззв оцнциоаианнззмзвниаоврноцмаиомнвннцвр из ризиз мимвицаи цивизвцваиио",
+   "row_sum_min": 0.9999998807907104,
+   "row_sum_max": 1.0000001192092896,
+   "future_leak": 0.0,
+   "input_sensitivity": 0.0
+  },
+  "только баг softmax": {
+   "failed_checks": [
+    "attention_matches_reference_implementation",
+    "attention_weights_sum_to_one_over_keys",
+    "attention_scale_depends_on_sqrt_d_k",
+    "attention_respects_causal_mask",
+    "no_future_leak_in_model"
+   ],
+   "train_loss_first": 3.1859376430511475,
+   "train_loss_last50": 0.01827042005956173,
+   "generation_loss": 0.13725723014445976,
+   "generation_accuracy": 0.975,
+   "valid_bigrams": 1.0,
+   "vocab_size": 19,
+   "marginal_entropy": 2.7183778285980225,
+   "sample": "азу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алгоритм внимания смотрит на все позиции сразу. алго",
+   "row_sum_min": 3.9947099139681086e-05,
+   "row_sum_max": 7.056329727172852,
+   "future_leak": 0.538485050201416,
+   "input_sensitivity": 12.452953338623047
+  },
+  "все три бага (исходный код)": {
+   "failed_checks": [
+    "positional_encoding_matches_formula",
+    "positional_encoding_starts_at_zero_position",
+    "layernorm_normalizes_each_token_separately",
+    "layernorm_is_independent_of_other_batch_elements",
+    "attention_matches_reference_implementation",
+    "attention_weights_sum_to_one_over_keys",
+    "attention_scale_depends_on_sqrt_d_k",
+    "attention_respects_causal_mask",
+    "generate_respects_top_k_one",
+    "generate_switches_model_to_eval"
+   ],
+   "train_loss_first": 3.1127400398254395,
+   "train_loss_last50": 0.051577580496668815,
+   "generation_loss": 2.89585076212883,
+   "generation_accuracy": 0.145,
+   "valid_bigrams": 0.235,
+   "vocab_size": 19,
+   "marginal_entropy": 2.7183778285980225,
+   "sample": "аовмцц сцоовоансм амнввнмнинои и в инвир рвцар рс вссинцоомсцанасо сцо арцаицимнсрмн  рноо ммс саррсацомррссцооваир  нцммоананим мовсоцнцвоаианнисммвниаоврноцмаиомнвннцврциц риицонмимвицаи цнвирвцваиио",
+   "row_sum_min": 0.015625,
+   "row_sum_max": 4.743890762329102,
+   "future_leak": 0.0,
+   "input_sensitivity": 0.0
+  }
+ },
+ "positional_shift": {
+  "diff_to_shifted": 0.0,
+  "diff_to_formula": 0.9577157497406006,
+  "first_row_broken": [
+   0.8414709568023682,
+   0.5403022766113281,
+   0.6815613508224487,
+   0.7317609786987305
+  ],
+  "first_row_fixed": [
+   0.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ }
+}
